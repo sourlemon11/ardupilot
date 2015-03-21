@@ -39,6 +39,6 @@ void userhook_SlowLoop()
 #ifdef USERHOOK_SUPERSLOWLOOP
 void userhook_SuperSlowLoop()
 {
-    cout <<"Hello World!";// put your 1Hz code here
+    cliSerial->printf_P(PSTR("HELLO WORLD STUPID APM"));// put your 1Hz code here
 }
 #endif
