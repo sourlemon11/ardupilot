@@ -39,6 +39,6 @@ void userhook_SlowLoop()
 #ifdef USERHOOK_SUPERSLOWLOOP
 void userhook_SuperSlowLoop()
 {
-    // put your 1Hz code here
+    cout <<"Hello World!";// put your 1Hz code here
 }
 #endif
