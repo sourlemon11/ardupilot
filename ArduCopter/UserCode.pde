@@ -40,5 +40,6 @@ void userhook_SlowLoop()
 void userhook_SuperSlowLoop()
 {
     cliSerial->printf_P(PSTR("HELLO WORLD STUPID APM"));// put your 1Hz code here
+    //hal.console->println("hello\n");
 }
 #endif

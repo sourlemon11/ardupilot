@@ -12,6 +12,7 @@ static int8_t   process_logs(uint8_t argc, const Menu::arg *argv);      // in Lo
 static int8_t   setup_mode(uint8_t argc, const Menu::arg *argv);        // in setup.pde
 static int8_t   test_mode(uint8_t argc, const Menu::arg *argv);         // in test.cpp
 static int8_t   reboot_board(uint8_t argc, const Menu::arg *argv);
+static int8_t   status_movement(uint8_t argc, const Menu::arg *argv); // creating a status.cpp
 
 // This is the help function
 static int8_t   main_menu_help(uint8_t argc, const Menu::arg *argv)
@@ -21,6 +22,7 @@ static int8_t   main_menu_help(uint8_t argc, const Menu::arg *argv)
                          "  setup\n"
                          "  test\n"
                          "  reboot\n"
+                         "  status\n"
                          "\n"));
     return(0);
 }
@@ -33,6 +35,7 @@ const struct Menu::command main_menu_commands[] PROGMEM = {
     {"setup",               setup_mode},
     {"test",                test_mode},
     {"reboot",              reboot_board},
+    {"status",              status_movement};
     {"help",                main_menu_help},
 };
 
@@ -58,7 +61,7 @@ static void run_cli(AP_HAL::UARTDriver *port)
     // disable main_loop failsafe
     failsafe_disable();
 
-    // cut the engines
+    // cut the engines POSSIBLY CUT OFF THESE ENGINES IF ISSUES PERSISTS
     if(motors.armed()) {
         motors.armed(false);
         motors.output();
